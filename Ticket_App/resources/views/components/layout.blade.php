@@ -12,7 +12,7 @@
 
 <body>
     <nav class="relative bg-gray-800">
-        <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-9xl px-2 sm:px-6 lg:px-8">
             <div class="relative flex h-16 items-center justify-between">
                 <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
                     <!-- Mobile menu button-->
@@ -33,22 +33,26 @@
                 </div>
                 <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                     <div class="flex shrink-0 items-center">
-                        <img src="{{ asset('images/laravel-logo.png') }}"
-                            alt="Your Company" class="h-8 w-auto" />
+                        <img src="{{ asset('images/laravel-logo.png') }}" alt="Your Company" class="h-8 w-auto" />
                     </div>
                     <div class="hidden sm:ml-6 sm:block">
                         <div class="flex space-x-4">
                             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
-                            <a href="/" 
-                                class="{{ request()->is('/') ? 'rounded-md bg-gray-900 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white'}} px-3 py-2 text-sm font-medium">Dashboard</a>
-                            <a href="/concerts"
-                                class="{{ request()->is('concerts*') ? 'rounded-md bg-gray-900 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white' }} px-3 py-2 text-sm font-medium">Concerts</a>
-                            <a href="/sports"
-                                class="{{ request()->is('sports*') ? 'rounded-md bg-gray-900 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white' }} px-3 py-2 text-sm font-medium">Sports</a>
-                            <a href="/arts"
-                                class="{{ request()->is('arts*') ? 'rounded-md bg-gray-900 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white' }} px-3 py-2 text-sm font-medium">Arts, Theater & Comedy</a>
-                            <a href="/cities"
-                                class="{{ request()->is('cities*') ? 'rounded-md bg-gray-900 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white' }} px-3 py-2 text-sm font-medium">Cities</a>
+                            <x-nav-link href="/"
+                                class="{{ request()->is('/') ? 'rounded-md bg-gray-900 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white'}} px-3 py-2 text-sm font-medium">
+                                Dashboard</x-nav-link>
+                            <x-nav-link href="/concerts"
+                                class="{{ request()->is('concerts*') ? 'rounded-md bg-gray-900 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white' }} px-3 py-2 text-sm font-medium">
+                                Concerts</x-nav-link>
+                            <x-nav-link href="/sports"
+                                class="{{ request()->is('sports*') ? 'rounded-md bg-gray-900 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white' }} px-3 py-2 text-sm font-medium">
+                                Sports</x-nav-link>
+                            <x-nav-link href="/arts"
+                                class="{{ request()->is('arts*') ? 'rounded-md bg-gray-900 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white' }} px-3 py-2 text-sm font-medium">
+                                Arts, Theater & Comedy</x-nav-link>
+                            <x-nav-link href="/cities"
+                                class="{{ request()->is('cities*') ? 'rounded-md bg-gray-900 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white' }} px-3 py-2 text-sm font-medium">
+                                Cities</x-nav-link>
                         </div>
                     </div>
                 </div>
@@ -95,18 +99,30 @@
         <el-disclosure id="mobile-menu" hidden class="block sm:hidden">
             <div class="space-y-1 px-2 pt-2 pb-3">
                 <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
-                <a href="#" aria-current="page"
-                    class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white">Dashboard</a>
-                <a href="#"
-                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">Team</a>
-                <a href="#"
-                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">Projects</a>
-                <a href="#"
-                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">Calendar</a>
+                <x-nav-link href="/" aria-current="page"
+                    class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white">Dashboard
+                </x-nav-link>
+                <x-nav-link href="/concerts"
+                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">
+                    Concerts</x-nav-link>
+                <x-nav-link href="/cities"
+                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">
+                    Cities</x-nav-link>
+                <x-nav-link href="/arts"
+                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">
+                    Arts, Theater & Comedy</x-nav-link>
+                <x-nav-link href="/sports"
+                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">
+                    Sports</x-nav-link>
             </div>
         </el-disclosure>
     </nav>
-
+    <header
+        class="relative bg-gray-100 after:pointer-events-none after:absolute after:inset-x-0 after:inset-y-0 after:border-y after:border-black/10">
+        <div class="mx-auto max-w-9xl px-4 py-6 sm:px-6 lg:px-8">
+            <h1 class="text-3xl font-bold tracking-tight text-black">{{ $heading }}</h1>
+        </div>
+    </header>
     <main>
         {{ $slot }}
     </main>
